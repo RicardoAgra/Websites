@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Usefull Web Pages</title>
+		<link rel="stylesheet" type="text/css" href="dist/styles.css" />
+	</head>
+	<body class="bg-opacity-75 p-10 md:p-20">
+		<main class="max-w-5xl m-auto h-full">
+			<h1 class="text-blue-800 font-bold text-3xl pb-10">Usefull Web Pages</h1>
+
+			<section id="app"></section>
+
+			<script type="module">
+				import { h, Component, render } from "https://unpkg.com/preact?module";
+				import htm from "https://unpkg.com/htm?module";
+
+				const html = htm.bind(h);
+
+				function App(props) {
+					const pages = [
+						{
+							name: "Do Not Pay",
+							description:
+								"First Robot Layer. Fight corporations, beat bureaucracy and sue anyone at the press of a button.",
+							link: "https://www.jasper.ai/art",
+							categories: ["ai", "law"]
+						},
+						{
+							name: "Jasper AI Art",
+							description:
+								"Generate images with AI based on any text description.",
+							link: "https://www.jasper.ai/art",
+							categories: ["ai", "images"]
+						},
+						{
+							name: "Jasper AI",
+							description: "Create social media content with AI.",
+							link: "https://www.jasper.ai/art",
+							categories: ["ai", "text", "social-media"]
+						},
+						{
+							name: "Synthesia",
+							description:
+								"Create videos narrated by a human AI generated face. Create tuturial videos.",
+							link: "https://www.synthesia.io/",
+							categories: ["ai", "video"]
+						},
+						{
+							name: "Repurpose",
+							description:
+								"Write once, post to all your social media pages at the same time.",
+							link: "https://repurpose.io/",
+							categories: ["social-media"]
+						}
+					];
+
+					const categoryStyles = {
+						ai: {
+							classes: "bg-purple-100 text-purple-600"
+						},
+						images: {
+							classes: "bg-blue-100 text-blue-600"
+						},
+						text: {
+							classes: "bg-gray-100 text-gray-600"
+						},
+						video: {
+							classes: "bg-red-100 text-red-600"
+						},
+						"social-media": {
+							text: "Social Media",
+							icon: "",
+							classes: "bg-teal-100 text-teal-600"
+						},
+						law: {
+							text: "Law",
+							icon: "",
+							classes: "bg-green-100 text-green-600"
+						}
+					};
+
+					return html`<ul class="pt-6 grid gap-4">
+						${pages.map(
+							({ name, description, link, categories }, index) => html`<a
+								class="button"
+								href="${link}"
+								><li
+									class="flex p-2 items-center rounded transition-all justify-between group hover:bg-blue-100"
+									key="${index}"
+									title="Visit website"
+								>
+									<span class="font-bold text-blue-700 text-lg w-52"
+										>${name}</span
+									>
+									<span class="mr-auto text-left text-gray-800"
+										>${description}</span
+									>
+									<ul class="flex gap-2">
+										${categories.map(
+											category =>
+												html`<li
+													class="text-center w-auto min-w-40 rounded-full text-sm font-bold p-2 ${categoryStyles[
+														category
+													].classes}"
+												>
+													${category}
+												</li>`
+										)}
+									</ul>
+								</li></a
+							>`
+						)}
+					</ul>`;
+				}
+
+				render(html`<${App} name="World" />`, document.getElementById("app"));
+			</script>
+		</main>
+	</body>
+</html>
