@@ -9,7 +9,7 @@
 	</head>
 	<body class="bg-opacity-75 p-10 md:p-20">
 		<main class="max-w-5xl m-auto h-full">
-			<h1 class="text-blue-800 font-bold text-3xl pb-10">Usefull Web Pages</h1>
+			<h1 class="text-blue-800 font-bold text-3xl pb-10">Usefull Websites</h1>
 
 			<section id="app"></section>
 
@@ -22,11 +22,18 @@
 				function App(props) {
 					const pages = [
 						{
-							name: "Do Not Pay",
+							name: "DoNotPay.com",
 							description:
 								"First Robot Layer. Fight corporations, beat bureaucracy and sue anyone at the press of a button.",
 							link: "https://www.jasper.ai/art",
 							categories: ["ai", "law"]
+						},
+						{
+							name: "Axiom.ai",
+							description:
+								"use browser bots to automate website actions and repetitive tasks on any website or web app.",
+							link: "https://axiom.ai/",
+							categories: ["automation"]
 						},
 						{
 							name: "Jasper AI Art",
@@ -54,20 +61,55 @@
 								"Write once, post to all your social media pages at the same time.",
 							link: "https://repurpose.io/",
 							categories: ["social-media"]
+						},
+						{
+							name: "Copy.ai",
+							description: "AI content generator.",
+							link: "https://www.copy.ai/",
+							categories: ["text"]
+						},
+						{
+							name: "SimplyTrends",
+							description: "Sales insights for any Shopify store and product.",
+							link: "https://www.simplytrends.co/",
+							categories: ["statistics"]
+						},
+						{
+							name: "Pictory",
+							description:
+								"Automatically create short, highly-sharable branded videos from your long form content.",
+							link: "https://pictory.ai/",
+							categories: ["video"]
+						},
+						{
+							name: "Lumen5",
+							description: "Convert blog posts into youtube videos.",
+							link: "https://lumen5.com/",
+							categories: ["video"]
+						},
+						{
+							name: "IFixIt.com",
+							description: "Step-by-step guide to repair anything.",
+							link: "https://www.ifixit.com/",
+							categories: ["repair"]
 						}
 					];
 
 					const categoryStyles = {
 						ai: {
+							text: "A.I.",
 							classes: "bg-purple-100 text-purple-600"
 						},
 						images: {
+							text: "Images",
 							classes: "bg-blue-100 text-blue-600"
 						},
 						text: {
+							text: "Content",
 							classes: "bg-gray-100 text-gray-600"
 						},
 						video: {
+							text: "Video",
 							classes: "bg-red-100 text-red-600"
 						},
 						"social-media": {
@@ -79,6 +121,21 @@
 							text: "Law",
 							icon: "",
 							classes: "bg-green-100 text-green-600"
+						},
+						statistics: {
+							text: "Statistics",
+							icon: "",
+							classes: "bg-green-500 text-white"
+						},
+						repair: {
+							text: "Guides",
+							icon: "",
+							classes: "bg-blue-600 text-white"
+						},
+						automation: {
+							text: "Automation",
+							icon: "",
+							classes: "bg-purple-600 text-white"
 						}
 					};
 
@@ -106,7 +163,7 @@
 														category
 													].classes}"
 												>
-													${category}
+													${categoryStyles[category].text}
 												</li>`
 										)}
 									</ul>
